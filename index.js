@@ -30,15 +30,29 @@ const server = http.createServer((req, res) => {
     //servidor segun la peticion que este haya recibido.
 
     //condicionamos las rutas que recibimos en nuestro servidor http
-    if (routeClean === 'home') {
-        res.end('estas en el home');
+    switch(routeClean){
+        case '':
+            res.end('estas en la pagina principa;');
+            break;
+        case 'home':
+            res.end('estas en home');
+            break;
+        case 'contact':
+            res.end('estas en contacto');
+            break;
+        default:
+            res.end('404');
+            break;
     }
-    if (routeClean === 'contact') {
-        res.end('estas en contacto');
-    }
-    else {
-        res.end('404 ruta no encontrada');
-    }
+    // if (routeClean === 'home') {
+    //     res.end('estas en el home');
+    // }
+    // if (routeClean === 'contact') {
+    //     res.end('estas en contacto');
+    // }
+    // else {
+    //     res.end('404 ruta no encontrada');
+    // }
 
 });
 // server.on('clientError', (err, socket) => {
