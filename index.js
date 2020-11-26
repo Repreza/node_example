@@ -26,8 +26,16 @@ const server = http.createServer((req, res) => {
     console.log('esta es la ruta limpia ' + routeClean);
 
     //obteniendo el metodo de http
-    console.log('El Metodo es: ', req.method.toLowerCase());
+    const method = req.method.toLowerCase();
+    console.log('El Metodo es: ', method);
 
+    //obteniento el query
+    const { query = {}} = urlParce;
+    console.log('el query es : ', query);
+
+    //obteniendo headers
+    const {headers} = req;
+    console.log({headers});
     //obtener la ruta de la url
     //el metodo end devuelve el resultado o respuesta de nuestro
     //servidor segun la peticion que este haya recibido.
